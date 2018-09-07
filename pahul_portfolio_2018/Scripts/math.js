@@ -19,6 +19,12 @@
 
 })
 
+$("#codeMath").hide();
+$("#showMathCode").click(function () {
+    $("#codeMath").toggle();
+})
+
+
 $("#btn1").click(function () {
     var number1 = Number($("#number1").val());
     var number2 = Number($("#number2").val());
@@ -38,22 +44,47 @@ $("#btn1").click(function () {
     $("#fizzbuzz").text(output);
 })
 
+$("#codeFizzBuzz").hide();
+$("#showFizzBuzzCode").click(function () {
+    $("#codeFizzBuzz").toggle();
+})
+
 $("#btnfact").click(function () {
     var num = Number($("#num").val());
     var fact = 1;
+
     for (var i = num; i >= 1; i--) {
         fact = fact * i;
     }
     var result = fact;
     $("#factorial").text("The factorial is " + result);
+    if ($("#num").val("")) {
+        $("#factorial").text("");
+    }
+    $("#num").val("");
+})
+
+$("#codeFactorial").hide();
+$("#showFactorialCode").click(function () {
+    $("#codeFactorial").toggle();
 })
 
 $("#btn3").click(function () {
     var someText = $("#sometext").val();
     var checkForPalindrome = someText.split('').reverse().join('');
-    if (someText === checkForPalindrome) {
+    if ($("#sometext").val("")) {
+        $("#palindrome").text("");
+    }
+    if (someText === checkForPalindrome && someText !== "") {
         $("#palindrome").text("The word is a palindrome!")
-    } else {
+    } else if (someText !== "" && someText !== checkForPalindrome) {
         $("#palindrome").text("The word is not a palindrome!")
     }
+    $("#sometext").val("");
+
+})
+
+$("#codePalindrome").hide();
+$("#showPalindromeCode").click(function () {
+    $("#codePalindrome").toggle();
 })
