@@ -7,16 +7,16 @@
 
     var sum = num1 + num2 + num3 + num4 + num5;
     var product = num1 * num2 * num3 * num4 * num5;
-    var average = (num1 + num2 + num3 + num4 + num5) / 2;
+    var average = (num1 + num2 + num3 + num4 + num5) / 5;
     var largest = (Math.max(num1, num2, num3, num4, num5));
     var smallest = (Math.min(num1, num2, num3, num4, num5))
-
-    $("#sum").text("The sum is" + sum);
-    $("#product").text("The product is " + product);
-    $("#average").text("The average is " + average);
-    $("#largest").text("The largest is " + largest);
-    $("#smallest").text("The smallest is " + smallest);
-
+    if ($("#num1").val() && $("#num2").val() && $("#num3").val() && $("#num4").val() && $("#num5").val() !== "") {
+        $("#sum").text("The sum is" + sum);
+        $("#product").text("The product is " + product);
+        $("#average").text("The average is " + average);
+        $("#largest").text("The largest is " + largest);
+        $("#smallest").text("The smallest is " + smallest);
+    }
 })
 
 $("#codeMath").hide();
@@ -29,6 +29,7 @@ $("#btn1").click(function () {
     var number1 = Number($("#number1").val());
     var number2 = Number($("#number2").val());
     var numbers = [];
+
     for (var loop = 1; loop <= 100; loop++) {
         if (loop % number1 == 0 && loop % number2 == 0) {
             numbers.push("FIZZBUZZ")
@@ -40,8 +41,11 @@ $("#btn1").click(function () {
             numbers.push(loop);
         }
     }
-    var output = numbers.join(' , ');
-    $("#fizzbuzz").text(output);
+    if ($("#number1").val() && $("#number2").val() !== "") {
+        var output = numbers.join(' , ');
+        $("#fizzbuzz").text(output);
+    }
+
 })
 
 $("#codeFizzBuzz").hide();
@@ -56,10 +60,13 @@ $("#btnfact").click(function () {
     for (var i = num; i >= 1; i--) {
         fact = fact * i;
     }
-    var result = fact;
-    $("#factorial").text("The factorial is " + result);
-    if ($("#num").val("")) {
-        $("#factorial").text("");
+
+    if ($("#num").val() !== "") {
+        var result = fact;
+        $("#factorial").text("The factorial is " + result);
+    }
+    else {
+        $("#factorial").text("Please Enter a Number.")
     }
     $("#num").val("");
 })
@@ -79,6 +86,8 @@ $("#btn3").click(function () {
         $("#palindrome").text("The word is a palindrome!")
     } else if (someText !== "" && someText !== checkForPalindrome) {
         $("#palindrome").text("The word is not a palindrome!")
+    } else {
+        ("#palidrome").text("please enter a number")
     }
     $("#sometext").val("");
 
